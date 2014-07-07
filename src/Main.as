@@ -2,7 +2,8 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
-
+	import objects.World;
+	
 	/**
 	 * ...
 	 * @author Oklee
@@ -10,7 +11,8 @@ package
 	[Frame(factoryClass="Preloader")]
 	public class Main extends Sprite 
 	{
-
+		
+		//public var world:b2World;
 		public function Main():void 
 		{
 			if (stage) init();
@@ -21,6 +23,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			var word:World = new World(this);
 		}
 
 	}
