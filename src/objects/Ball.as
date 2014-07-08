@@ -26,14 +26,16 @@ package objects
 			bodyDef = new b2BodyDef();
 			fixtureDef = new b2FixtureDef();
 			circleShape = new b2CircleShape(Constants.ballRadio);
+			fixtureDef.friction = 1;
 			fixtureDef.shape = circleShape;
+			fixtureDef.restitution = 1;
 			bodyDef.type = b2Body.b2_dynamicBody;
 			bodyDef.userData = this;
 			body = world.CreateBody(bodyDef);
 			body.CreateFixture(fixtureDef);
 			
 			//draw the ball
-			draw();
+			if (!Constants.debug) draw();
 		}
 		
 		public function draw():void {
@@ -44,6 +46,10 @@ package objects
 		
 		public function setPosition(x:Number, y:Number):void {
 			body.SetPosition(new b2Vec2(x, y));
+		}
+		
+		public function setVelocity(x:Number, y:Number):void {
+			body.SetLinearVelocity(new b2Vec2(x, y));
 		}
 		
 	}
