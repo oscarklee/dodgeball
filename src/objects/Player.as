@@ -18,7 +18,7 @@ package objects
 			
 		}
 		
-		public function tick(e:Event) {
+		public function tick(e:Event):void {
 			player.setPosition(Utils.pixels2meters(mouseX), Utils.pixels2meters(mouseY));
 		}
 		
