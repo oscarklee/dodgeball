@@ -5,36 +5,24 @@ package objects
 	import Box2D.Dynamics.b2Body;
 	import Box2D.Dynamics.b2BodyDef;
 	import Box2D.Dynamics.b2FixtureDef;
-<<<<<<< HEAD
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import utils.Utils;
-=======
-
-import avmplus.implementsXml;
-
-import flash.display.Sprite;
-import flash.events.Event;
-import flash.events.MouseEvent;
-
-    import utils.Utils;
->>>>>>> origin/dev
 	import utils.Constants;
 	
 	/**
-	 * ...
+	 * ....
 	 * @author Oklee
 	 */
 	public class Room extends Sprite 
 	{
 		private var world:World;
 		private var boxes:Array;
-        private var t:Number = 0;
-		public function Room(world:World)
+		public function Room(world:World) 
 		{
 			this.world = world;
-			boxes = [];
-
+			boxes = new Array(4);
+			
 			var thick:Number = Constants.roomThick;
 			boxes.push(drawBox(thick, 0, world.getWidth() - 2*thick, thick));
 			boxes.push(drawBox(thick, world.getHeight() - thick, world.getWidth() - 2*thick, thick));
@@ -52,7 +40,6 @@ import flash.events.MouseEvent;
 			var hy:Number = h / 2;
 			
 			bodyDef.position.Set(x + hx, y + hy);
-            bodyDef.type = b2Body.b2_kinematicBody;
 			box.SetAsBox(hx, hy);
 			fixtureDef.friction = 1;
 			fixtureDef.shape = box;
@@ -74,31 +61,12 @@ import flash.events.MouseEvent;
 			addChild(boxSprite);
 		}
 		
-<<<<<<< HEAD
 		public function shake(e:Event):void {
 			
 			//boxes[0].SetPosition(new b2Vec2(2, 2));
 
-=======
-		public function shake(e:MouseEvent):void {
-            //addEventListener(Event.ENTER_FRAME, shaking);
-            var body:b2Body = boxes[0];
-            body.SetLinearVelocity(new b2Vec2(0, 1));
-            trace("shake body is null " + (body.GetLinearVelocity().y));
->>>>>>> origin/dev
 		}
-
-        /**
-         * Animation when the walls start to shake for the stocked balls
-         * @param e
-         */
-        public function shaking(e:Event):void {
-            t += 2*Math.PI/Constants.PPM;
-            if (t >= 2*Math.PI) {
-                t = 0;
-                removeEventListener(Event.ENTER_FRAME, shaking);
-            }
-        }
+		
 	}
 
 }

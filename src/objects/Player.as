@@ -25,7 +25,6 @@ package objects
             world.main.stage.addEventListener(KeyboardEvent.KEY_UP,keyUp);
 		}
 		
-<<<<<<< HEAD
 		 private function move(e:Event):void {
             var force:b2Vec2 = new b2Vec2(0, 0);
             
@@ -46,11 +45,6 @@ package objects
                 body.ApplyImpulse(force,body.GetWorldCenter());
             }
         }
-=======
-		public function tick(e:Event):void {
-			player.setPosition(Utils.pixels2meters(mouseX), Utils.pixels2meters(mouseY));
-		}
->>>>>>> origin/dev
 		
 		private function keyDown(e:KeyboardEvent):void {
             switch (e.keyCode) {
