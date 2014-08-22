@@ -15,10 +15,13 @@ package utils
 		public static var positionIterations:int = 10;
 		
 		public static var PPM:Number = 30; //Pixels per meter
-		public static var ballsNumber:Number = 500;
+		public static var ballsNumber:Number = 10;
 		public static var ballRadio:Number = 0.2;
 		public static var ballColor:Number = 0xff0000;
 		public static var ballVelocity:Number = 6;
+		
+		public static var playerForce:Number = 1; //force of the player to advance in Newtons
+		public static var playerColor:Number = 0x0000FF;
 		
 		public static var roomThick:Number = 0.2;
 		

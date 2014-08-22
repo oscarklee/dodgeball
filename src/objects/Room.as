@@ -6,6 +6,7 @@ package objects
 	import Box2D.Dynamics.b2BodyDef;
 	import Box2D.Dynamics.b2FixtureDef;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import utils.Utils;
 	import utils.Constants;
 	
@@ -60,8 +61,10 @@ package objects
 			addChild(boxSprite);
 		}
 		
-		public function shake():void {
-			boxes[0].SetPosition(new b2Vec2(2, 2));
+		public function shake(e:Event):void {
+			
+			//boxes[0].SetPosition(new b2Vec2(2, 2));
+
 		}
 		
 	}

@@ -2,6 +2,7 @@ package objects
 {
 	import Box2D.Common.Math.b2Vec2;
 	import flash.display.Sprite;
+	import flash.geom.ColorTransform;
 	import utils.Constants;
 	import utils.Utils;
 	
@@ -19,10 +20,13 @@ package objects
 	{
 		private var bodyDef:b2BodyDef;
 		private var circleShape:b2CircleShape;
-		private var body:b2Body;
+		protected var body:b2Body;
 		private var fixtureDef:b2FixtureDef;
+		protected var world:World;
 		public function Ball(world:World) 
 		{
+			this.world = world;
+			
 			bodyDef = new b2BodyDef();
 			fixtureDef = new b2FixtureDef();
 			circleShape = new b2CircleShape(Constants.ballRadio);
@@ -50,6 +54,12 @@ package objects
 		
 		public function setVelocity(x:Number, y:Number):void {
 			body.SetLinearVelocity(new b2Vec2(x, y));
+		}
+		
+		public function setColor(color:Number):void {
+			var newColor:ColorTransform = new ColorTransform();
+			newColor.color = color;
+			transform.colorTransform = newColor;
 		}
 		
 	}

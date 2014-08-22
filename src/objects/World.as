@@ -14,9 +14,10 @@ package objects
 	 */
 	public class World extends b2World
 	{
-		private var main:Main;
+		public var main:Main;
 		private var frameRate:Number;
 		private var room:Room;
+		private var player:Player;
 		public function World(main:Main) 
 		{
 			
@@ -24,9 +25,7 @@ package objects
 			frameRate = main.stage.frameRate;
 			this.main = main;
 			
-			var player:Player = new Player(this);
-			main.addEventListener(Event.ENTER_FRAME, player.tick);
-			
+			createPlayer();
 			createRoom();
 			createBalls();
 			debugDraw(Constants.debug);
@@ -34,9 +33,16 @@ package objects
 			main.addEventListener(Event.ENTER_FRAME, tick);
 		}
 		
-		private function createRoom():void {
+		private function createPlayer():Player {
+			player = new Player(this);
+			main.addChild(player);
+			return player;
+		}
+		
+		private function createRoom():Room {
 			room = new Room(this);
 			main.addChild(room);
+			return room;
 		}
 		
 		private function createBalls():void {
@@ -52,7 +58,7 @@ package objects
 
 				ball.setPosition(margin + numOfCol * (diameter + 0.2), margin + numOfRow * (diameter + 0.2));
 				ball.setVelocity(getRandomVel(), getRandomVel());
-				
+
 				main.addChild(ball);				
 			}
 		}
