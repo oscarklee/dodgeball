@@ -1,14 +1,17 @@
 package objects 
 {
-	import Box2D.Dynamics.b2DebugDraw;
-	import Box2D.Dynamics.b2World;
-	import utils.Constants;
-	import flash.events.Event;
-	import flash.display.Sprite;
-	import Box2D.Dynamics.b2Body;
-	import utils.Utils;
-	
-	/**
+import Box2D.Dynamics.b2Body;
+import Box2D.Dynamics.b2DebugDraw;
+import Box2D.Dynamics.b2World;
+
+import flash.display.Sprite;
+import flash.events.Event;
+import flash.events.MouseEvent;
+
+import utils.Constants;
+import utils.Utils;
+
+/**
 	 * ...
 	 * @author Oklee
 	 */
@@ -25,12 +28,19 @@ package objects
 			frameRate = main.stage.frameRate;
 			this.main = main;
 			
+<<<<<<< HEAD
 			createPlayer();
+=======
+			//var player:Player = new Player(this);
+
+>>>>>>> origin/dev
 			createRoom();
 			createBalls();
 			debugDraw(Constants.debug);
-			
+
 			main.addEventListener(Event.ENTER_FRAME, tick);
+			//main.addEventListener(Event.ENTER_FRAME, player.tick);
+            main.stage.addEventListener(MouseEvent.CLICK, room.shake);
 		}
 		
 		private function createPlayer():Player {
@@ -46,7 +56,7 @@ package objects
 		}
 		
 		private function createBalls():void {
-			for (var i:int = 0; i <= Constants.ballsNumber; i++) {
+			for (var i:int = 0; i < Constants.ballsNumber; i++) {
 				var ball:Ball = new Ball(this);
 				
 				//set position
@@ -63,7 +73,7 @@ package objects
 			}
 		}
 		
-		private function getRandomVel():Number {
+		private static function getRandomVel():Number {
 			return (Math.pow(-1, Math.round(Math.random())+1)) * Constants.ballVelocity;
 		}
 		
